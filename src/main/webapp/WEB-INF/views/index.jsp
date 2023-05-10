@@ -22,7 +22,7 @@
 <%--    <link href="css/sb-admin-2.min.css" rel="stylesheet">--%>
 
 </head>
-
+<%--        ------------------------------%>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -144,6 +144,7 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+<%--        ------------------------------%>
 
         <!-- Main Content -->
         <div id="content">

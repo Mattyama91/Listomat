@@ -14,16 +14,16 @@
   </button>
 
   <!-- Topbar Search -->
-  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
-          <i class="fas fa-search fa-sm"></i>
-        </button>
-      </div>
-    </div>
-  </form>
+<%--  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">--%>
+<%--    <div class="input-group">--%>
+<%--      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">--%>
+<%--      <div class="input-group-append">--%>
+<%--        <button class="btn btn-primary" type="button">--%>
+<%--          <i class="fas fa-search fa-sm"></i>--%>
+<%--        </button>--%>
+<%--      </div>--%>
+<%--    </div>--%>
+<%--  </form>--%>
 
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
@@ -110,10 +110,10 @@
           Message Center
         </h6>
         <a class="dropdown-item d-flex align-items-center" href="#">
-          <div class="dropdown-list-image mr-3">
-            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-            <div class="status-indicator bg-success"></div>
-          </div>
+<%--          <div class="dropdown-list-image mr-3">--%>
+<%--            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">--%>
+<%--            <div class="status-indicator bg-success"></div>--%>
+<%--          </div>--%>
           <div class="font-weight-bold">
             <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
             <div class="small text-gray-500">Emily Fowler · 58m</div>
@@ -187,5 +187,6 @@
   </ul>
 
 </nav>
+
 </body>
 </html>

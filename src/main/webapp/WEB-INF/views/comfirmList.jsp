@@ -51,16 +51,22 @@
             <!-- Topbar -->
             <%@ include file="/header.jsp" %>
             <!-- End of Topbar -->
+            <div class="container">
 
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
+                <!-- Outer Row -->
+                <div class="row justify-content-center">
 
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
+                    <div class="col-xl-10 col-lg-12 col-md-9">
+
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+
                             <table class="table">
                                 <tr>
-                                    <th>Are you sure you want to delete the shopping list?</th>
+                                    <th>
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Are you sure you want to delete the shopping list?</h1>
+                                        </div>
+                                    </th>
                                 </tr>
                                 <tr>
                                     <td>
@@ -71,11 +77,14 @@
                                     </td>
                                 </tr>
                             </table>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
-            <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->
