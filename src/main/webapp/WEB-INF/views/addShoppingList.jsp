@@ -100,6 +100,7 @@
               <div class="form-group">
                 <label for="userName">Name</label>
                 <form:input path="listName" cssClass="form-control" id="userName" placeholder="Shoping list name"/>
+                <form:errors path="listName" id="userName"/>
 <%--                <input name="userName" type="text" class="form-control" id="userName" placeholder="Nazwa użytkownika">--%>
               </div>
 <%--              <div class="form-group">--%>

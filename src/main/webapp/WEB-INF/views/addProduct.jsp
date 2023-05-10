@@ -101,6 +101,7 @@
               <div class="form-group">
                 <label for="Name">Name</label>
                 <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name"/>
+                <form:errors path="productName" />
 <%--                <input name="userName" type="text" class="form-control" id="userName" placeholder="Nazwa użytkownika">--%>
               </div>
               <div class="form-group">

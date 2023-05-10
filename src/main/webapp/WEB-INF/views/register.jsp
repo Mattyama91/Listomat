@@ -44,25 +44,32 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <form:input path="firstName" cssClass="form-control form-control-user" id="exampleFirstName" placeholder="First Name"/>
+                                    <form:errors path="firstName" />
                                 </div>
                                 <div class="col-sm-6">
                                     <form:input path="lastName" cssClass="form-control form-control-user" id="exampleFirstName" placeholder="Last Name"/>
+                                    <form:errors path="lastName" />
 <%--                                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">--%>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <form:input path="email" cssClass="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address"/>
+                                <form:errors path="email" />
 <%--                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">--%>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
-<%--                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">--%>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" id="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                                </div>
+                            <div class="form-group">
+                                <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
+                                <form:errors path="password" />
                             </div>
+<%--                            <div class="form-group row">--%>
+<%--                                <div class="col-sm-6 mb-3 mb-sm-0">--%>
+<%--                                    <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>--%>
+<%--&lt;%&ndash;                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">&ndash;%&gt;--%>
+<%--                                </div>--%>
+<%--                                <div class="col-sm-6">--%>
+<%--                                    <input type="password" id="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 <%--                            <a href="/login" class="btn btn-primary btn-user btn-block">--%>
                             <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
 <%--                                Register Account--%>

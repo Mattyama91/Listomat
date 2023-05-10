@@ -49,6 +49,7 @@
 <%--                <form class="user">--%>
                   <div class="form-group">
                       <form:input path="email" cssClass="form-control form-control-user" id="exampleInputEmail" placeholder="Enter Email Address..."/>
+                      <form:errors path="email" />
 <%--                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">--%>
                   </div>
                   <div class="form-group">

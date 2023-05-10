@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.listomat.model.User;
 import pl.listomat.repository.UserRepository;
@@ -11,6 +12,7 @@ import pl.listomat.repository.UserRepository;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 @SessionAttributes("loguser")
@@ -32,7 +34,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(Model model, User user) {
+    public String loginUser(@Valid Model model, User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "login";
+        }
         User comfirmUser = userRepository.findUserByEmail(user.getEmail());
         try {
             if (BCrypt.checkpw(user.getPassword(), comfirmUser.getPassword())) {
@@ -53,7 +58,10 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User user) {
+    public String saveUser(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "register";
+        }
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         userRepository.save(user);
         return "redirect: /login";

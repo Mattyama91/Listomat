@@ -2,6 +2,7 @@ package pl.listomat.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.listomat.model.Product;
 import pl.listomat.model.ShoppingList;
@@ -10,6 +11,7 @@ import pl.listomat.repository.ShoppingListRepository;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -32,7 +34,10 @@ public class ListController {
 
     @PostMapping("/save")
 //    @ResponseBody
-    public String listSave(Model model, ShoppingList shoppingList) {
+    public String listSave(@Valid Model model, ShoppingList shoppingList, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addShoppingList";
+        }
 //        return shoppingList.toString();
         model.addAttribute("sessionList", shoppingListRepository.save(shoppingList));
         model.addAttribute("product", new Product());
