@@ -9,10 +9,7 @@ import pl.listomat.model.ShoppingList;
 import pl.listomat.repository.ProductRepository;
 import pl.listomat.repository.ShoppingListRepository;
 
-import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 @RequestMapping("app/list")
@@ -33,13 +30,11 @@ public class ListController {
     }
 
     @PostMapping("/save")
-//    @ResponseBody
-    public String listSave(@Valid Model model, ShoppingList shoppingList, BindingResult result) {
+    public String listSave(Model model, @Valid ShoppingList shoppingList, BindingResult result) {
         if (result.hasErrors()) {
             return "addShoppingList";
         }
-//        return shoppingList.toString();
-        model.addAttribute("sessionList", shoppingListRepository.save(shoppingList));
+        model.addAttribute("listId", shoppingListRepository.save(shoppingList).getId());
         model.addAttribute("product", new Product());
         return "addProduct";
     }
@@ -57,19 +52,35 @@ public class ListController {
         return "redirect:/app/index";
     }
 
+    @PostMapping("/update")
+    public String listUpdate(Model model, @Valid ShoppingList shoppingList, BindingResult result) {
+        if (result.hasErrors()) {
+            return "editList";
+        }
+        model.addAttribute("sessionList", shoppingListRepository.save(shoppingList));
+        model.addAttribute("product", new Product());
+        return "addProduct";
+    }
+
     @GetMapping("/edit/{id}")
-//    @ResponseBody
     public String listEditForm(Model model, @PathVariable Long id) {
-//        return shoppingListRepository.findById(id).toString();
-        model.addAttribute("editShoppingList", shoppingListRepository.findById(id));
-        model.addAttribute("sessionList", shoppingListRepository.findById(id));
+        model.addAttribute("list_id", id);
         model.addAttribute("product", new Product());
         model.addAttribute("products", productRepository.findProductByShoppingListId(id));
         return "editList";
     }
 
-    @PostMapping("/edit")
-    public String listEdit() {
-        return "redirect:/app/index";
+    @PostMapping("/edit/{id}")
+    public String listEdit(Model model, @PathVariable Long id, @Valid Product product, BindingResult result) {
+        Product addProduct = product;
+        addProduct.setId(null);
+
+//        if (result.hasErrors()) {
+//            return "editList";
+//        }
+        model.addAttribute("list_id", id);
+        model.addAttribute("product", new Product());
+        model.addAttribute("products", productRepository.findProductByShoppingListId(productRepository.save(addProduct).getShoppingList().getId()));
+        return "editList";
     }
 }

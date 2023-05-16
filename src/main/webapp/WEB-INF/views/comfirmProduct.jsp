@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="<c:url value="/app/product/delete/${id}"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> YES </a>
+                    <a href="<c:url value="/app/product/delete/${listId}/${id}"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> YES </a>
                   </td>
                   <td>
                     <a href="/app/product/reload" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> NO </a>

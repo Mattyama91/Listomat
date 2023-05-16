@@ -1,4 +1,4 @@
-package pl.listomat;
+package pl.listomat.app;
 
 import org.springframework.web.filter.GenericFilterBean;
 

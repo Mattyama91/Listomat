@@ -20,23 +20,24 @@ public class User {
     private Long id;
 
     @Size(min = 2, max = 30, message = "The value should be 2 or more characters but not more than 30.")
-    @Pattern(regexp = "^[A-Za-z,.'-]+", message = "The first name can only contain letters and the following characters: .-,'")
-    @Column(name = "first_name")
+    @Pattern(regexp = "^[\\p{IsAlphabetic}]+", message = "The first name can only contain letters and the following characters: .-,'")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @Size(min = 2, max = 30, message = "The value should be 2 or more characters but not more than 30.")
-    @Pattern(regexp = "^[A-Za-z,.'-]+", message = "The last name can only contain letters and the following characters: .-,'")
-    @Column(name = "last_name")
+    @Pattern(regexp = "^[\\p{IsAlphabetic}]+", message = "The last name can only contain letters and the following characters: .-,'")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @Email(message = "Invalid e-mail address")
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "min. 8 characters, including one capital letter, one number and one special character")
+//    @Password(message = "Minimum eight characters, at least one letter, one number and one special character")
     @Column(name = "password")
     private String password;
 
-//    @Column(name = "enable")
-//    private int enable;
+    @Transient
+    private String repassword;
+
 }

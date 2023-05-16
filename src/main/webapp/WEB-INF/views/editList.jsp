@@ -82,6 +82,83 @@
       <!-- End of Topbar -->
 
       <!-- Begin Page Content -->
+<%--      <div class="container-fluid">--%>
+
+        <!-- Page Heading -->
+<%--        <div class="d-sm-flex align-items-center justify-content-between mb-4">--%>
+<%--          <a href="/app/index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
+<%--            <i class="fas fa-download fa-sm text-white-50"></i> Yours shopping lists</a>--%>
+<%--        </div>--%>
+<%--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx--%>
+
+<%--        <form:form action="/app/list/save" method="post" modelAttribute="editShoppingList">--%>
+<%--        <div class="card shadow mb-4">--%>
+<%--          <div class="card-header py-3">--%>
+<%--            <h6 class="m-0 font-weight-bold text-primary">Add shopping list</h6>--%>
+<%--          </div>--%>
+<%--          <div class="card-body">--%>
+<%--              <div class="form-group">--%>
+<%--                <label for="userName">Name</label>--%>
+<%--                <form:input path="listName" cssClass="form-control" id="userName" placeholder="Shoping list name"/>--%>
+<%--              </div>--%>
+<%--              <input type="submit" value="Save" class="btn btn-primary">--%>
+<%--          </div>--%>
+<%--        </div>--%>
+<%--        </form:form>--%>
+
+<%--        <div class="card shadow mb-4">--%>
+<%--          <div class="card-header py-3">--%>
+<%--            <h6 class="m-0 font-weight-bold text-primary">Add product to shopping list</h6>--%>
+<%--          </div>--%>
+<%--          <div class="card-body">--%>
+<%--            <form:form action="/app/product/add" method="post" modelAttribute="product">--%>
+<%--              <form:hidden path="shoppingList.id" value="${sessionList.id}"/>--%>
+<%--              <div class="form-group">--%>
+<%--                <label for="Name">Name</label>--%>
+<%--                <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name"/>--%>
+<%--              </div>--%>
+<%--              <div class="form-group">--%>
+<%--                <label for="quantity">Quantity</label>--%>
+<%--                <form:input path="quantity" cssClass="form-control" id="quantity" placeholder="Product quantity"/>--%>
+<%--              </div>--%>
+<%--              <input type="submit" value="Add" class="btn btn-primary">--%>
+<%--            </form:form>--%>
+<%--          </div>--%>
+<%--        </div>--%>
+
+<%--        <div class="card shadow mb-4">--%>
+<%--          <div class="card-header py-3">--%>
+<%--            <h6 class="m-0 font-weight-bold text-primary">Added products in your shopping list:</h6>--%>
+<%--          </div>--%>
+<%--          <div class="card-body">--%>
+<%--            <div class="table-responsive">--%>
+<%--              <table class="table">--%>
+<%--                <tr>--%>
+<%--                  <th>Product name</th>--%>
+<%--                  <th>Quantity</th>--%>
+<%--                  <th>Actions</th>--%>
+<%--                </tr>--%>
+<%--                <c:forEach items="${products}" var="p">--%>
+<%--                  <tr>--%>
+<%--                    <td>${p.productName}</td>--%>
+<%--                    <td>${p.quantity}</td>--%>
+<%--                    <td>--%>
+<%--                      <a href='<c:url value="/app/product/comfirm/${p.id}"/>'>Usuń</a>--%>
+<%--                    </td>--%>
+<%--                  </tr>--%>
+<%--                </c:forEach>--%>
+<%--              </table>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--        </div>--%>
+
+<%--      </div>--%>
+
+      <%--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx--%>
+
+      <!-- /.container-fluid -->
+
+      <!-- Begin Page Content -->
       <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -90,38 +167,35 @@
             <i class="fas fa-download fa-sm text-white-50"></i> Yours shopping lists</a>
         </div>
 
-        <form:form action="/app/list/save" method="post" modelAttribute="editShoppingList">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add shopping list</h6>
-          </div>
-          <div class="card-body">
-              <div class="form-group">
-                <label for="userName">Name</label>
-                <form:input path="listName" cssClass="form-control" id="userName" placeholder="Shoping list name"/>
-              </div>
-              <input type="submit" value="Save" class="btn btn-primary">
-          </div>
-        </div>
-        </form:form>
-
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Add product to shopping list</h6>
           </div>
           <div class="card-body">
-            <form:form action="/app/product/add" method="post" modelAttribute="product">
-<%--              <form:hidden path="shoppingList.id" value="${sessionList.id}"/>--%>
+            <form:form action="/app/list/edit/${list_id}" method="post" modelAttribute="product">
+              <form:hidden path="shoppingList.id" value="${list_id}"/>
+              <%--              <form:hidden path="shoppingList.id" value="${sessionList.id}" />--%>
+              <%--            <form method="post">--%>
               <div class="form-group">
                 <label for="Name">Name</label>
                 <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name"/>
+                <form:errors path="productName" />
+                  <%--                <input name="userName" type="text" class="form-control" id="userName" placeholder="Nazwa użytkownika">--%>
               </div>
               <div class="form-group">
                 <label for="quantity">Quantity</label>
                 <form:input path="quantity" cssClass="form-control" id="quantity" placeholder="Product quantity"/>
+                  <%--                <input name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email użytkownika">--%>
               </div>
+              <%--              <div class="form-group">--%>
+              <%--                <label for="userPassword">Hasło</label>--%>
+              <%--                <input name="userPassword" type="password" class="form-control" id="userPassword" placeholder="Hasło użytkownika">--%>
+              <%--              </div>--%>
               <input type="submit" value="Add" class="btn btn-primary">
+              <%--              <button type="submit" class="btn btn-primary">Zapisz</button>--%>
             </form:form>
+                        </form>
+
           </div>
         </div>
 
@@ -133,16 +207,19 @@
             <div class="table-responsive">
               <table class="table">
                 <tr>
+                  <%--                                    <th>Id</th>--%>
                   <th>Product name</th>
                   <th>Quantity</th>
                   <th>Actions</th>
                 </tr>
-                <c:forEach items="${products}" var="p">
+                <c:forEach items="${products}" var="product">
                   <tr>
-                    <td>${p.productName}</td>
-                    <td>${p.quantity}</td>
+                      <%--                                        <td>Shopping list name</td>--%>
+                    <td>${product.productName}</td>
+                    <td>${product.quantity}</td>
                     <td>
-                      <a href='<c:url value="/app/product/comfirm/${p.id}"/>'>Usuń</a>
+                      <a href='<c:url value="/app/product/comfirm/${product.id}"/>'>Usuń</a>
+                        <%--&lt;%&ndash;                      <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edit</a>&ndash;%&gt;--%>
                     </td>
                   </tr>
                 </c:forEach>
@@ -153,6 +230,7 @@
 
       </div>
       <!-- /.container-fluid -->
+
 
     </div>
     <!-- End of Main Content -->

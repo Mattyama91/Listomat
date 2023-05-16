@@ -44,48 +44,48 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <form:input path="firstName" cssClass="form-control form-control-user" id="exampleFirstName" placeholder="First Name"/>
-                                    <form:errors path="firstName" />
+                                    <form:errors path="firstName" cssClass="text-danger"/>
                                 </div>
                                 <div class="col-sm-6">
                                     <form:input path="lastName" cssClass="form-control form-control-user" id="exampleFirstName" placeholder="Last Name"/>
-                                    <form:errors path="lastName" />
+                                    <form:errors path="lastName" cssClass="text-danger"/>
 <%--                                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">--%>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <form:input path="email" cssClass="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address"/>
-                                <form:errors path="email" />
+                                <form:errors path="email" cssClass="text-danger"/>
+                                <p class="text-danger">
+                                    <c:out value="${loginAlert}"/>
+                                </p>
 <%--                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">--%>
                             </div>
-                            <div class="form-group">
-                                <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
-                                <form:errors path="password" />
-                            </div>
-<%--                            <div class="form-group row">--%>
-<%--                                <div class="col-sm-6 mb-3 mb-sm-0">--%>
-<%--                                    <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>--%>
-<%--&lt;%&ndash;                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">&ndash;%&gt;--%>
-<%--                                </div>--%>
-<%--                                <div class="col-sm-6">--%>
-<%--                                    <input type="password" id="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">--%>
-<%--                                </div>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>--%>
+<%--                                <form:errors path="password" />--%>
 <%--                            </div>--%>
-<%--                            <a href="/login" class="btn btn-primary btn-user btn-block">--%>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <form:password path="password" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
+<%--                                    <form:errors path="password" cssClass="text-danger"/>--%>
+<%--                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">--%>
+                                </div>
+                                <div class="col-sm-6">
+                                    <form:password path="repassword" cssClass="form-control form-control-user" id="exampleInputPassword" placeholder="Repeat Password"/>
+<%--                                    <input type="password" id="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">--%>
+                                </div>
+                            </div>
+                            <div class="form-group text-danger">
+<%--&lt;%&ndash;                                <p><c:out value="${alert}" default=""/></p>&ndash;%&gt;--%>
+                                <c:out value="${alert}"/>
+                            </div>
                             <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
-<%--                                Register Account--%>
-<%--                            </a>--%>
                             <hr>
-<%--                            <a href="index.html" class="btn btn-google btn-user btn-block">--%>
-<%--                                <i class="fab fa-google fa-fw"></i> Register with Google--%>
-<%--                            </a>--%>
-<%--                            <a href="index.html" class="btn btn-facebook btn-user btn-block">--%>
-<%--                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook--%>
-<%--                            </a>--%>
-                            <hr>
+<%--                            <hr>--%>
                         </form:form>
-                        <div class="text-center">
-                            <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
+<%--                        <div class="text-center">--%>
+<%--                            <a class="small" href="forgot-password.html">Forgot Password?</a>--%>
+<%--                        </div>--%>
                         <div class="text-center">
                             <a class="small" href="/login">Already have an account? Login!</a>
                         </div>

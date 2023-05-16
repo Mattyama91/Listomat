@@ -181,6 +181,7 @@
                                         <td>
                                             <a href='<c:url value="/app/list/comfirm/${shoppingList.id}"/>'>Usuń</a>
                                             <a href='<c:url value="/app/list/edit/${shoppingList.id}"/>'>Edit</a>
+<%--                                            <a href="/app/product/add">Edit</a>--%>
                                             <a href='<c:url value="/app/product/show/${shoppingList.id}"/>'>Pokaż</a>
                                         </td>
                                     </tr>

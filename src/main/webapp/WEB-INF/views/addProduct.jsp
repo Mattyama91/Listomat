@@ -94,8 +94,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Add product to shopping list</h6>
           </div>
           <div class="card-body">
-            <form:form action="/app/product/add" method="post" modelAttribute="product">
-              <form:hidden path="shoppingList.id" value="${sessionList.id}"/>
+            <form:form action="/app/product/add/${listId}" method="post" modelAttribute="product">
+              <form:hidden path="shoppingList.id" value="${listId}"/>
+<%--              <form:hidden path="shoppingList.id" value="${sessionList.id}"/>--%>
 <%--              <form:hidden path="shoppingList.id" value="${sessionList.id}" />--%>
 <%--            <form method="post">--%>
               <div class="form-group">
@@ -109,14 +110,9 @@
                 <form:input path="quantity" cssClass="form-control" id="quantity" placeholder="Product quantity"/>
 <%--                <input name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email użytkownika">--%>
               </div>
-<%--              <div class="form-group">--%>
-<%--                <label for="userPassword">Hasło</label>--%>
-<%--                <input name="userPassword" type="password" class="form-control" id="userPassword" placeholder="Hasło użytkownika">--%>
-<%--              </div>--%>
               <input type="submit" value="Add" class="btn btn-primary">
-<%--              <button type="submit" class="btn btn-primary">Zapisz</button>--%>
               </form:form>
-<%--            </form>--%>
+            </form>
 
           </div>
         </div>
@@ -134,13 +130,13 @@
                   <th>Quantity</th>
                   <th>Actions</th>
                 </tr>
-                <c:forEach items="${products}" var="product">
+                <c:forEach items="${products}" var="p">
                   <tr>
                       <%--                                        <td>Shopping list name</td>--%>
-                    <td>${product.productName}</td>
-                    <td>${product.quantity}</td>
+                    <td>${p.productName}</td>
+                    <td>${p.quantity}</td>
                     <td>
-                      <a href='<c:url value="/app/product/comfirm/${product.id}"/>'>Usuń</a>
+                      <a href='<c:url value="/app/product/comfirm/${listId}/${p.id}"/>'>Usuń</a>
 <%--&lt;%&ndash;                      <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edit</a>&ndash;%&gt;--%>
                     </td>
                   </tr>
