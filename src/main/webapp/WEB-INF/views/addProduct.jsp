@@ -101,8 +101,19 @@
 <%--            <form method="post">--%>
               <div class="form-group">
                 <label for="Name">Name</label>
-                <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name"/>
-                <form:errors path="productName" />
+<%--                <form:select path="productName" cssClass="form-control" id="Name">--%>
+<%--                  <form:option  value="-" label="--Please Select--" />--%>
+<%--                  <form:options items="${names}"/>--%>
+<%--                </form:select>--%>
+<%--                <input type="text" list="productNames" id="Name"/>--%>
+<%--                <datalist id="productNames">--%>
+<%--                  <form:options items="${names}"/>--%>
+<%--                </datalist>--%>
+                
+                <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name" />
+<%--                <form:select path="productName" --%>
+<%--                <form:errors path="productName" />--%>
+<%--                <input list="">--%>
 <%--                <input name="userName" type="text" class="form-control" id="userName" placeholder="Nazwa użytkownika">--%>
               </div>
               <div class="form-group">
@@ -136,10 +147,53 @@
                     <td>${p.productName}</td>
                     <td>${p.quantity}</td>
                     <td>
-                      <a href='<c:url value="/app/product/comfirm/${listId}/${p.id}"/>'>Usuń</a>
+                      <a href='<c:url value="/app/product/comfirm/${listId}/${p.id}"/>'>Delete</a>
 <%--&lt;%&ndash;                      <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edit</a>&ndash;%&gt;--%>
                     </td>
                   </tr>
+                </c:forEach>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Last added products</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                  <%--                                    <th>Id</th>--%>
+                  <th>Product name</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+                <c:forEach items="${names}" var="name">
+                  <form action="/app/product/add/${listId}" method="post">
+                    <tr>
+                      <td>
+                        <input type="text" name="pName" class="form-control" placeholder="${name}" value="${name}">
+<%--                        <form:input path="productName" cssClass="form-control" id="Name" placeholder="Product name" />--%>
+                      </td>
+                      <td>
+                        <input type="text" name="pQuantity" class="form-control" placeholder="Product quantity"/>
+                      </td>
+                      <td>
+                        <input type="submit" value="Add" class="btn btn-primary">
+                      </td>
+                    </tr>
+                  </form>
+<%--                  <tr>--%>
+<%--                      &lt;%&ndash;                                        <td>Shopping list name</td>&ndash;%&gt;--%>
+<%--                    <td>${name}</td>--%>
+<%--                    <td></td>--%>
+<%--                    <td>--%>
+<%--                      <a href='<c:url value="/app/product/comfirm/"/>'>Add</a>--%>
+<%--                        &lt;%&ndash;&lt;%&ndash;                      <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edit</a>&ndash;%&gt;&ndash;%&gt;--%>
+<%--                    </td>--%>
+<%--                  </tr>--%>
                 </c:forEach>
               </table>
             </div>

@@ -6,9 +6,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.listomat.model.Product;
 import pl.listomat.model.ShoppingList;
+import pl.listomat.model.User;
 import pl.listomat.repository.ProductRepository;
 import pl.listomat.repository.ShoppingListRepository;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -23,6 +25,13 @@ public class ListController {
         this.productRepository = productRepository;
     }
 
+    @PostMapping("/filter")
+    public String filterList(@RequestParam String lName, Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loguser");
+        model.addAttribute("shoppingLists", shoppingListRepository.findShoppingListByName(user.getId(), lName));
+        return "index";
+    }
+
     @GetMapping("/add")
     public String listAddForm(Model model) {
         model.addAttribute("shoppingList", new ShoppingList());
@@ -30,10 +39,12 @@ public class ListController {
     }
 
     @PostMapping("/save")
-    public String listSave(Model model, @Valid ShoppingList shoppingList, BindingResult result) {
+    public String listSave(Model model, HttpSession session, @Valid ShoppingList shoppingList, BindingResult result) {
         if (result.hasErrors()) {
             return "addShoppingList";
         }
+        User user = (User) session.getAttribute("loguser");
+        model.addAttribute("names", productRepository.findProductUserId(user.getId()));
         model.addAttribute("listId", shoppingListRepository.save(shoppingList).getId());
         model.addAttribute("product", new Product());
         return "addProduct";

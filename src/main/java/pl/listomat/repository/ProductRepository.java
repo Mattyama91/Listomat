@@ -14,6 +14,16 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             nativeQuery = true)
     List<Product> findProductByShoppingListId(@Param("list_id") Long list_id);
 
+    @Query(value = "SELECT p.product_name\n" +
+            "FROM products p\n" +
+            "LEFT JOIN shopping_lists sl\n" +
+            "    ON sl.id = p.list_id\n" +
+            "LEFT JOIN users u\n" +
+            "    ON u.id = sl.user_id\n" +
+            "WHERE u.id = :user_id",
+            nativeQuery = true)
+    List<String> findProductUserId(@Param("user_id") Long user_id);
+
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM products WHERE list_id = :list_id",

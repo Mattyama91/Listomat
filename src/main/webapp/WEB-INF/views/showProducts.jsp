@@ -127,15 +127,21 @@
             <div class="table-responsive">
               <table class="table">
                 <tr>
-                  <%--                                    <th>Id</th>--%>
+<%--                  <th></th>--%>
                   <th>Product name</th>
                   <th>Quantity</th>
 <%--                  <th>Actions</th>--%>
                 </tr>
                 <c:forEach items="${products}" var="product">
                   <tr>
-                      <%--                                        <td>Shopping list name</td>--%>
-                    <td>${product.productName}</td>
+<%--                    <td>--%>
+<%--                      <input type="checkbox"/>--%>
+<%--                    </td>--%>
+                    <td>
+<%--                      <label for="vehicle1"> I have a bike</label><br>--%>
+                      <input type="checkbox" value="${product.productName}">${product.productName}
+<%--                        ${product.productName}--%>
+                    </td>
                     <td>${product.quantity}</td>
 <%--                    <td>--%>
 <%--                      <a href='<c:url value="/user/delete?id=${product.id}"/>'>Usuń</a>--%>

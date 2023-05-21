@@ -159,6 +159,17 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a href="/app/list/add"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add new shopping list</a>
+                    <form action="/app/list/filter" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input name = "lName" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <input type="submit" value="Search" class="btn btn-primary btn-user btn-block">
+<%--                                <button class="btn btn-primary" type="button">--%>
+<%--                                    <i class="fas fa-search fa-sm"></i>--%>
+<%--                                </button>--%>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
@@ -179,10 +190,10 @@
                                         <td>${shoppingList.listName}</td>
                                         <td>30</td>
                                         <td>
-                                            <a href='<c:url value="/app/list/comfirm/${shoppingList.id}"/>'>Usuń</a>
+                                            <a href='<c:url value="/app/list/comfirm/${shoppingList.id}"/>'>Delete</a>
                                             <a href='<c:url value="/app/list/edit/${shoppingList.id}"/>'>Edit</a>
 <%--                                            <a href="/app/product/add">Edit</a>--%>
-                                            <a href='<c:url value="/app/product/show/${shoppingList.id}"/>'>Pokaż</a>
+                                            <a href='<c:url value="/app/product/show/${shoppingList.id}"/>'>Show</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
