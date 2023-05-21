@@ -35,25 +35,25 @@ previously created lists and edit them. When the list is no longer needed, it ca
 
 ## User flow:
 ### 1 - Register page
-![register.png](register.png)
+![register.png](src/main/webapp/theme/img/register.png)
 
 ### 2 - Login page
-![login.png](login.png)
+![login.png](src/main/webapp/theme/img/login.png)
 
 ### 3 - Home page
-![home.png](home.png)
+![home.png](src/main/webapp/theme/img/home.png)
 
 ### 4 - Add shopping list page
-![add_shopping_list.png](add_shopping_list.png)
+![add_shopping_list.png](src/main/webapp/theme/img/add_shopping_list.png)
 
 ### 5 - Add product to shopping list page
-![add_products.png](add_products.png)
+![add_products.png](src/main/webapp/theme/img/add_products.png)
 
 ### 6 - Added products to shopping list page
-![added_products.png](added_products.png)
+![added_products.png](src/main/webapp/theme/img/added_products.png)
 
 ### 7 - Edit shopping list page
-![edit_shopping_list.png](edit_shopping_list.png)
+![edit_shopping_list.png](src/main/webapp/theme/img/edit_shopping_list.png)
 
 
 
