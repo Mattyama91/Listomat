@@ -181,14 +181,14 @@
                                 <tr>
 <%--                                    <th>Id</th>--%>
                                     <th>Shopping list name</th>
-                                    <th>Items</th>
+<%--                                    <th>Items</th>--%>
                                     <th>Actions</th>
                                 </tr>
                                 <c:forEach items="${shoppingLists}" var="shoppingList">
                                     <tr>
 <%--                                        <td>Shopping list name</td>--%>
                                         <td>${shoppingList.listName}</td>
-                                        <td>30</td>
+<%--                                        <td>30</td>--%>
                                         <td>
                                             <a href='<c:url value="/app/list/comfirm/${shoppingList.id}"/>'>Delete</a>
                                             <a href='<c:url value="/app/list/edit/${shoppingList.id}"/>'>Edit</a>

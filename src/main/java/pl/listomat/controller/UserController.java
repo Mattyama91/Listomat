@@ -17,6 +17,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -91,13 +92,37 @@ public class UserController {
         return "editUser";
     }
 
+    @Transactional
     @PostMapping("/app/user")
-//    @ResponseBody
     public String editUser(Model model, User loguser) {
-//        return loguser.toString();
-//        userRepository.save(loguser);
         model.addAttribute("loguser", userRepository.save(loguser));
         return "editUser";
+    }
+
+    @GetMapping("/app/user/password")
+    public String editPassword(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loguser");
+        model.addAttribute("user", user);
+        return "editPassword";
+    }
+
+    @Transactional
+    @PostMapping("/app/user/password")
+    public String savePassword(HttpServletRequest request, Model model, User user) {
+        String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$";
+
+        if (!user.getPassword().matches(regex)) {
+            request.setAttribute("alert", "min. 8 characters, including one capital letter");
+            return "editPassword";
+        }
+        if (!user.getPassword().equals(user.getRepassword())) {
+            request.setAttribute("alert", "The passwords should be the same");
+            return "editPassword";
+        }
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+        model.addAttribute("loguser", userRepository.save(user));
+//        userRepository.save(user);
+        return "redirect: /app/user";
     }
 
     @GetMapping("/app/user/logout/comfirm")

@@ -87,57 +87,32 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a href="/app/index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i> Yours shopping lists</a>
+                        <i class="fas fa-download fa-sm text-white-50"></i> Yours data</a>
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Your data</h6>
                     </div>
                     <div class="card-body">
-                        <form:form action="/app/user" method="post" modelAttribute="loguser">
-                            <form:hidden path="id" value="${loguser.id}"/>
-                            <form:hidden path="password" value="${loguser.password}" />
-                            <%--              <form:hidden path="shoppingList.id" value="${sessionList.id}" />--%>
-                            <%--            <form method="post">--%>
+                        <form:form action="/app/user/password" method="post" modelAttribute="user">
+                            <form:hidden path="id" value="${user.id}"/>
+                            <form:hidden path="firstName" value="${user.firstName}"/>
+                            <form:hidden path="lastName" value="${user.lastName}"/>
+                            <form:hidden path="email" value="${user.email}"/>
+<%--                            <form:hidden path="password" value="${loguser.password}" />--%>
                             <div class="form-group">
-                                <label for="firstName">First name</label>
-                                <form:input path="firstName" cssClass="form-control" id="Name" placeholder="First name"/>
-                                    <%--                <input name="userName" type="text" class="form-control" id="userName" placeholder="Nazwa użytkownika">--%>
+                                <label for="password">Password</label>
+                                <form:password path="password" cssClass="form-control" id="Name" placeholder="Password"/>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Last mame</label>
-                                <form:input path="lastName" cssClass="form-control" id="lastName" placeholder="Last mame"/>
-                                    <%--                <input name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email użytkownika">--%>
+                                <label for="repassword">Repeat Password</label>
+                                <form:password path="repassword" cssClass="form-control" id="repassword" placeholder="Repeat Password"/>
                             </div>
-                            <div class="form-group">
-                                <label for="userEmail">Email</label>
-                                <form:input path="email" cssClass="form-control" id="userEmail" placeholder="Email"/>
+                            <div class="form-group text-danger">
+                                <c:out value="${alert}"/>
                             </div>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="userPassword">Password</label>--%>
-<%--                                <form:password path="password" cssClass="form-control" id="userPassword" placeholder="Password"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="userPassword">Password</label>--%>
-<%--                                <form:password path="password" cssClass="form-control" id="userPassword" placeholder="Password"/>--%>
-<%--                            </div>--%>
                             <input type="submit" value="Save" class="btn btn-primary">
-                            <%--              <button type="submit" class="btn btn-primary">Zapisz</button>--%>
                         </form:form>
-                        <%--            </form>--%>
-
-                    </div>
-                </div>
-
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Password</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <a href="/app/user/password" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fas fa-download fa-sm text-white-50"></i> Change password</a>
-                        </div>
                     </div>
                 </div>
 
@@ -159,5 +134,3 @@
 </body>
 
 </html>
-
-
